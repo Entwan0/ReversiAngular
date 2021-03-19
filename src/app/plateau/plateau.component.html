@@ -1,0 +1,17 @@
+<h3>
+  Turn: <strong style="color: red">{{ turn }}</strong>
+</h3>
+
+<table class="reversi">
+  <tr *ngFor="let ligne of board; index as i;trackBy: tracKByIndex">
+    <td *ngFor="let case of ligne; index as j;trackBy: tracKByIndex"
+    [class.Player1]="case==='Player1'"
+    [class.Player2]="case==='Player2'"
+    [class.Empty]="case==='Empty'"
+    [class.canPlay]="playable[i][j]"
+    (click) = "PLAY(i,j)"
+    >
+      <div></div>
+    </td>
+  </tr>
+</table>
